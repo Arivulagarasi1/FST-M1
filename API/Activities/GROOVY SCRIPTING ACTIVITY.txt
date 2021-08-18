@@ -1,0 +1,19 @@
+def testcase = testRunner.testCase
+def testsuite = testRunner.testCase.testSuite
+def project = testRunner.testCase.testSuite.project
+
+
+log.info testcase.getLabel()
+
+log.info testsuite.getLabel()
+
+log.info project.name
+
+for(i in 1..10)
+{
+    if(Math.random()*10 < 5.0) {
+        testRunner.runTestStepByName("NumberToDollars - Request 1")
+    } else {
+        testRunner.runTestStepByName("NumberToWords - Request 1")
+    }
+}
