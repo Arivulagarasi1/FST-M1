@@ -1,0 +1,5 @@
+import com.eviware.soapui.support.XmlHolder
+
+def holder = new XmlHolder(messageExchange.responseContentAsXml)
+
+assert holder["//SubtractResult"] != null

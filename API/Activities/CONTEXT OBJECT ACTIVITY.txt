@@ -1,0 +1,19 @@
+import com.eviware.soapui.support.XmlHolder
+
+
+def req = context.expand('${AddRequest#request}')
+def res = context.expand('${AddRequest#response}')
+
+
+def request = new XmlHolder(req)
+def response = new XmlHolder(res)
+
+
+def reqvalue1 = request.getNodeValue('//tem:intA')
+log.info reqvalue1
+
+def reqvalue2 = request.getNodeValue('//tem:intB')
+log.info reqvalue2
+
+def resvalue = response.getNodeValue('//ns1:AddResult')
+log.info resvalue

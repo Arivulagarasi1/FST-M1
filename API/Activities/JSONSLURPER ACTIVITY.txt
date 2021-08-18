@@ -1,0 +1,13 @@
+import groovy.json.JsonSlurper
+
+def slurp = new JsonSlurper()
+
+
+def res = context.expand('${Request 1#response}')
+
+def jsonRes = slurp.parseText(res)
+
+log.info jsonRes.status
+log.info jsonRes.available
+log.info jsonRes.sold
+log.info jsonRes.pending

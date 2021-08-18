@@ -1,0 +1,20 @@
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+def reqHolder = groovyUtils.getXmlHolder( "Add#Request" )
+
+
+reqHolder["//tem:intA"] = 10
+reqHolder["//tem:intB"] = 20
+
+log.info "Interget A: ${reqHolder['//tem:intA']}"
+log.info "Interget B: ${reqHolder['//tem:intB']}"
+
+
+reqHolder.updateProperty()
+
+
+testRunner.runTestStepByName("Add")
+
+
+def resHolder = groovyUtils.getXmlHolder( "Add#Response" )
+
+log.info "Result: ${resHolder['//ns1:AddResult']}"
